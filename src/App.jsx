@@ -10,7 +10,8 @@ import { action as updateOrderAction } from './features/order/UpdateOrder';
 import AppLayout from './ui/AppLayout';
 import Error from './ui/Error';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
   {
     element: <AppLayout />,
     errorElement: <Error />,
@@ -37,7 +38,10 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+],
+{
+  basename: import.meta.env.DEV ? '/' : '/fast-react-pizza/',
+},);
 
 function App() {
   return <RouterProvider router={router} />;
